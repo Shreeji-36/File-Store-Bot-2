@@ -190,9 +190,25 @@ def main():
     Thread(target=run_flask, daemon=True).start()
 
     # Start Telegram bot
-    Bot().run()
+    Bot(
+        session="bot",
+        workers=4,
+        db=int(os.getenv("DB_CHANNEL", 0)),
+        fsub=[],
+        token=os.getenv("BOT_TOKEN"),
+        admins=[],
+        messages={},
+        auto_del=0,
+        db_uri=os.getenv("MONGO_URI"),
+        db_name=os.getenv("DB_NAME"),
+        api_id=int(os.getenv("API_ID")),
+        api_hash=os.getenv("API_HASH"),
+        protect=False,
+        disable_btn=False
+    ).run()
 
-if __name__ == "__main__":
+
+if name == "main":
     main()
 #async def web_app():
  ##  await app.setup()
