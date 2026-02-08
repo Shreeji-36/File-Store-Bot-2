@@ -166,7 +166,7 @@ async def remove_admins(client: Client, query: CallbackQuery):
     try:
         for identifier in ids:
             if int(identifier) == client.owner:
-                await client.send_message(query.from_user.id, "Nigga i can never remove the owner from the admin list!!")
+                await client.send_message(query.from_user.id, "Nɪɢɢᴀ I ᴄᴀɴ ɴᴇᴠᴇʀ ʀᴇᴍᴏᴠᴇ ᴛʜᴇ ᴏᴡɴᴇʀ ғʀᴏᴍ ᴛʜᴇ ᴀᴅᴍɪɴ ʟɪsᴛ !!")
                 continue
             if int(identifier) in client.admins:
                 client.admins.remove(int(identifier))
