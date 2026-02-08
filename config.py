@@ -33,7 +33,7 @@ DB_CHANNEL =    # just put channel id dont add ""
 # Auto Delete Timer (seconds)
 AUTO_DEL = 300
 # Admin IDs
-ADMINS = [6497757690, 6103092779]
+ADMINS = [7355641270]
 # Bot Settings
 DISABLE_BTN = True
 PROTECT = True
