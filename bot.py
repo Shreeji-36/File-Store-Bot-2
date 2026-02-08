@@ -37,7 +37,7 @@ class Bot(Client):
         self.protect = protect
         self.req_fsub = {}
         self.disable_btn = disable_btn
-        self.reply_text = messages.get('REPLY', 'Do not send any useless message in the bot.')
+        self.reply_text = messages.get('REPLY', 'Fᴜᴄᴋ ᴏғғ... Bɪᴛᴄʜ !')
         self.mongodb = MongoDB(db_uri, db_name)
         self.req_channels = []
         self.db_channels = {}  # Initialize DB channels dictionary
