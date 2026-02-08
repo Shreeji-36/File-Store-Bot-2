@@ -485,5 +485,3 @@ class MongoDB:
             for user_id in users_to_add:
                 await self.add_channel_user(channel_id, user_id)
                 await self.update_fsub_status(user_id, channel_id, "joined")
-
-   
