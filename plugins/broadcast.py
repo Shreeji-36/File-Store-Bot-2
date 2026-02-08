@@ -29,7 +29,7 @@ async def send_text(client, message):
             deleted = 0
             unsuccessful = 0
 
-            pls_wait = await message.reply("<blockquote><i>Broadcasting Message.. This will Take Some Time</i></blockquote>")
+            pls_wait = await message.reply("<blockquote><i>Bʀᴏᴀᴅᴄᴀsᴛɪɴɢ ᴍᴇssᴀɢᴇ... Tʜɪs ᴡɪʟʟ ᴛᴀᴋᴇ sᴏᴍᴇ ᴛɪᴍᴇ</i></blockquote>")
             for chat_id in query:
                 try:
                     await broadcast_msg.copy(chat_id)
