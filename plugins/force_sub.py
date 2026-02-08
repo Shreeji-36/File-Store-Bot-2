@@ -42,7 +42,7 @@ async def add_fsub(client: Client, query: CallbackQuery):
         channel_id, request, timer = channel_info
         channel_id = int(channel_id)
         if channel_id in client.fsub_dict.keys():
-            return await ask_channel_info.reply("**This channel id already exists in force sub list, remove it to change it's configuration!!**")
+            return await ask_channel_info.reply("**ᴛʜɪs ᴄʜᴀɴɴᴇʟ ɪᴅ ᴀʟʀᴇᴀᴅʏ ᴇxɪsᴛs ɪɴ ғᴏʀᴄᴇ sᴜʙ ʟɪsᴛ, ʀᴇᴍᴏᴠᴇ ɪᴛ ᴛᴏ ᴄʜᴀɴɢᴇ ɪᴛ's ᴄᴏɴғɪɢᴜʀᴀᴛɪᴏɴ !!**")
         val, res = await is_bot_admin(client, channel_id)
         if not val:
             return await ask_channel_info.reply(f"**Error:** `{res}`")
