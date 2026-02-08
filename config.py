@@ -20,7 +20,7 @@ API_HASH = "a0b76b9ff89c3f30adbb2696438c6581"
 WORKERS = 1
 
 DB_URI = "mongodb+srv://Galaxy_Network:Zlqz3sLOMyAaOlT5@cluster0.prfw2el.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-DB_NAME = "𝗖𝗵𝗿𝗼𝗹𝗹𝗼"
+DB_NAME = "Sᴏɪғᴏɴ"
 
 FSUBS = [[-1002716211901, True, 10]] # Force Subscription Channels [channel_id, request_enabled, timer_in_minutes]
 # Database Channel (Primary)
