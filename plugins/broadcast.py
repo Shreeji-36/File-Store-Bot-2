@@ -60,7 +60,7 @@ async def send_text(client, message):
             return await pls_wait.edit(status)
 
         else:
-            msg = await message.reply(f"Use This Command As A Reply To Any Telegram Message Without Any Spaces.")
+            msg = await message.reply(f"ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴀs ᴀ ʀᴇᴘʟʏ ᴛᴏ ᴀɴʏ ᴛᴇʟᴇɢʀᴀᴍ ᴍᴇssᴀɢᴇ ᴡɪᴛʜᴏᴜᴛ ᴀɴʏ sᴘᴀᴄᴇ.")
             await asyncio.sleep(8)
             await msg.delete()
 
@@ -103,7 +103,7 @@ async def pin_bdcst_text(client, message):
                     await client.mongodb.del_user(chat_id)
                     deleted += 1
                 except Exception as e:
-                    print(f"Failed to send message to {chat_id}: {e}")
+                    print(f"ғᴀɪʟᴇᴅ ᴛᴏ sᴇɴᴅ ᴍᴇssᴀɢᴇ ᴛᴏ {chat_id}: {e}")
                     unsuccessful += 1
                 total += 1
 
@@ -117,6 +117,6 @@ async def pin_bdcst_text(client, message):
             return await pls_wait.edit(status)
 
         else:
-            msg = await message.reply("Use This Command As A Reply To Any Telegram Message Without Any Spaces.")
+            msg = await message.reply("ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴀs ᴀ ʀᴇᴘʟʏ ᴛᴏ ᴀɴʏ ᴛᴇʟᴇɢʀᴀᴍ ᴍᴇssᴀɢᴇ ᴡɪᴛʜᴏᴜᴛ ᴀɴʏ sᴘᴀᴄᴇ.")
             await asyncio.sleep(8)
             await msg.delete()
