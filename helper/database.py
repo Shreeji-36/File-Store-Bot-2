@@ -486,4 +486,260 @@ class MongoDB:
                 await self.add_channel_user(channel_id, user_id)
                 await self.update_fsub_status(user_id, channel_id, "joined")
 
+            # Remove old users
+            for user_id in users_to_remove:
+                await self.remove_channel_user(channel_id, user_id)
+                await self.update_fsub_status(user_id, channel_id, "left")
+
+            return {
+                "added": len(users_to_add),
+                "removed": len(users_to_remove),
+                "synced": True
+            }
+        except Exception as e:
+            print(f"Error syncing channel members for {channel_id}: {e}")
+            return {"synced": False, "error": str(e)}
+
+    async def export_fsub_data(self, channel_id: int = None):
+        """Export force subscription data for backup or analysis"""
+        try:
+            export_data = {
+                "export_timestamp": datetime.now().isoformat(),
+                "fsub_statuses": [],
+                "join_requests": []
+            }
+
+            # Filter by channel if specified
+            filter_query = {"channel_id": channel_id} if channel_id else {}
+
+            # Export fsub statuses
+            async for doc in self.fsub_status.find(filter_query):
+                doc["_id"] = str(doc["_id"])  # Convert ObjectId to string
+                if "last_updated" in doc:
+                    doc["last_updated"] = doc["last_updated"].isoformat()
+                export_data["fsub_statuses"].append(doc)
+
+            # Export join requests
+            async for doc in self.request_sub.find(filter_query):
+                doc["_id"] = str(doc["_id"])  # Convert ObjectId to string
+                if "submitted_at" in doc:
+                    doc["submitted_at"] = doc["submitted_at"].isoformat()
+                if "last_updated" in doc:
+                    doc["last_updated"] = doc["last_updated"].isoformat()
+                export_data["join_requests"].append(doc)
+
+            return export_data
+        except Exception as e:
+            print(f"Error exporting fsub data: {e}")
+            return None
+
+    async def get_fsub_statistics(self):
+        """Get statistics about fsub collections"""
+        try:
+            fsub_count = await self.fsub_status.count_documents({})
+            request_count = await self.request_sub.count_documents({})
+            pending_requests = await self.request_sub.count_documents({"status": "pending"})
+
+            return {
+                "fsub_status_records": fsub_count,
+                "join_request_records": request_count,
+                "pending_requests": pending_requests
+            }
+        except Exception as e:
+            print(f"Error getting fsub statistics: {e}")
+            return {}
+
+    # ✅ DB CHANNELS FUNCTIONS
+
+    async def set_db_channels(self, db_channels_data: dict):
+        """Store DB channels data to database for persistence across bot restarts"""
+        await self.user_data.update_one(
+            {"_id": "db_channels"},
+            {"$set": {"channels": db_channels_data}},
+            upsert=True
+        )
+
+    async def get_db_channels(self) -> dict:
+        """Get DB channels data from database"""
+        data = await self.user_data.find_one({"_id": "db_channels"})
+        return data.get("channels", {}) if data else {}
+
+    async def add_db_channel(self, channel_id: int, channel_data: dict):
+        """Add a single DB channel to database"""
+        current_data = await self.get_db_channels()
+        current_data[str(channel_id)] = channel_data
+        await self.set_db_channels(current_data)
+
+    async def remove_db_channel(self, channel_id: int):
+        """Remove a single DB channel from database"""
+        current_data = await self.get_db_channels()
+        current_data.pop(str(channel_id), None)
+        await self.set_db_channels(current_data)
+
+    async def update_db_channel(self, channel_id: int, channel_data: dict):
+        """Update a single DB channel in database"""
+        current_data = await self.get_db_channels()
+        if str(channel_id) in current_data:
+            current_data[str(channel_id)].update(channel_data)
+            await self.set_db_channels(current_data)
+
+    async def get_primary_db_channel(self) -> int:
+        """Get the primary DB channel ID"""
+        db_channels = await self.get_db_channels()
+        for channel_id_str, channel_data in db_channels.items():
+            if channel_data.get('is_primary', False):
+                return int(channel_id_str)
+        return None
+
+    async def set_primary_db_channel(self, channel_id: int):
+        """Set a DB channel as primary (remove primary from others)"""
+        db_channels = await self.get_db_channels()
+        # Remove primary status from all channels
+        for ch_id, ch_data in db_channels.items():
+            ch_data['is_primary'] = False
+        # Set new primary channel
+        if str(channel_id) in db_channels:
+            db_channels[str(channel_id)]['is_primary'] = True
+        await self.set_db_channels(db_channels)
+
+    async def get_active_db_channels(self) -> dict:
+        """Get all active DB channels"""
+        db_channels = await self.get_db_channels()
+        active_channels = {}
+        for channel_id_str, channel_data in db_channels.items():
+            if channel_data.get('is_active', True):
+                active_channels[channel_id_str] = channel_data
+        return active_channels
+
+    async def toggle_db_channel_status(self, channel_id: int):
+        """Toggle DB channel active/inactive status"""
+        db_channels = await self.get_db_channels()
+        if str(channel_id) in db_channels:
+            current_status = db_channels[str(channel_id)].get('is_active', True)
+            db_channels[str(channel_id)]['is_active'] = not current_status
+            await self.set_db_channels(db_channels)
+            return not current_status
+        return None
+
+    # ✅ BOT SETTINGS FUNCTIONS
+
+    async def set_bot_settings(self, settings_data: dict):
+        """Store bot settings to database for persistence across bot restarts"""
+        await self.user_data.update_one(
+            {"_id": "bot_settings"},
+            {"$set": {"settings": settings_data}},
+            upsert=True
+        )
+
+    async def get_bot_settings(self) -> dict:
+        """Get bot settings from database"""
+        data = await self.user_data.find_one({"_id": "bot_settings"})
+        return data.get("settings", {}) if data else {}
+
+    async def update_bot_setting(self, key: str, value):
+        """Update a single bot setting"""
+        current_data = await self.get_bot_settings()
+        current_data[key] = value
+        await self.set_bot_settings(current_data)
+
+    async def get_bot_setting(self, key: str, default=None):
+        """Get a single bot setting with default fallback"""
+        settings = await self.get_bot_settings()
+        return settings.get(key, default)
+
+    # ✅ MESSAGES SETTINGS FUNCTIONS
+
+    async def set_messages_settings(self, messages_data: dict):
+        """Store messages settings to database for persistence across bot restarts"""
+        await self.user_data.update_one(
+            {"_id": "messages_settings"},
+            {"$set": {"messages": messages_data}},
+            upsert=True
+        )
+
+    async def get_messages_settings(self) -> dict:
+        """Get messages settings from database"""
+        data = await self.user_data.find_one({"_id": "messages_settings"})
+        return data.get("messages", {}) if data else {}
+
+    async def update_message_setting(self, key: str, value: str):
+        """Update a single message setting"""
+        current_data = await self.get_messages_settings()
+        current_data[key] = value
+        await self.set_messages_settings(current_data)
+
+    async def get_message_setting(self, key: str, default: str = ""):
+        """Get a single message setting with default fallback"""
+        messages = await self.get_messages_settings()
+        return messages.get(key, default)
+
+    # ✅ ADMIN SETTINGS FUNCTIONS
+
+    async def set_admins_list(self, admins_list: list):
+        """Store admins list to database for persistence across bot restarts"""
+        await self.user_data.update_one(
+            {"_id": "admins_list"},
+            {"$set": {"admins": admins_list}},
+            upsert=True
+        )
+
+    async def get_admins_list(self) -> list:
+        """Get admins list from database"""
+        data = await self.user_data.find_one({"_id": "admins_list"})
+        return data.get("admins", []) if data else []
+
+    async def add_admin(self, admin_id: int):
+        """Add an admin to the database"""
+        current_admins = await self.get_admins_list()
+        if admin_id not in current_admins:
+            current_admins.append(admin_id)
+            await self.set_admins_list(current_admins)
+            return True
+        return False
+
+    async def remove_admin(self, admin_id: int):
+        """Remove an admin from the database"""
+        current_admins = await self.get_admins_list()
+        if admin_id in current_admins:
+            current_admins.remove(admin_id)
+            await self.set_admins_list(current_admins)
+            return True
+        return False
+
+    # ✅ BATCH SETTINGS FUNCTIONS
+
+    async def save_all_settings(self, bot_settings: dict, messages: dict, admins: list):
+        """Save all settings in a single transaction for efficiency"""
+        try:
+            await self.set_bot_settings(bot_settings)
+            await self.set_messages_settings(messages)
+            await self.set_admins_list(admins)
+            return True
+        except Exception as e:
+            print(f"Error saving all settings: {e}")
+            return False
+
+    async def load_all_settings(self) -> dict:
+        """Load all settings in a single call for efficiency"""
+        try:
+            bot_settings = await self.get_bot_settings()
+            messages = await self.get_messages_settings()
+            admins = await self.get_admins_list()
+            shortner_settings = await self.get_shortner_settings()
+
+            return {
+                "bot_settings": bot_settings,
+                "messages": messages,
+                "admins": admins,
+                "shortner_settings": shortner_settings
+            }
+        except Exception as e:
+            print(f"Error loading all settings: {e}")
+            return {
+                "bot_settings": {},
+                "messages": {},
+                "admins": [],
+                "shortner_settings": {}
+            }
+
    
