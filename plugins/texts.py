@@ -4,7 +4,7 @@ from pyrogram.types import CallbackQuery, Message, InlineKeyboardButton, InlineK
 #===============================================================#
 
 async def texts(client, query):
-    msg = f"""<blockquote>**Text Configuration:**</blockquote>
+    msg = f"""<blockquote>**Tᴇxᴛ Cᴏɴғɪɢᴜʀᴀᴛɪᴏɴ:**</blockquote>
 **Start Message:**
 <pre>{client.messages.get('START', 'Empty')}</pre>
 **Force Sub Message:**
