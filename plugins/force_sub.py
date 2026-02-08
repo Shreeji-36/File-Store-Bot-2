@@ -18,7 +18,7 @@ async def fsub(client, query):
     else:
         channels_display = "_No force subscription channels configured_"
 
-    msg = f"""<blockquote>**Force Subscription Settings:**</blockquote>
+    msg = f"""<blockquote>**ғᴏʀᴄᴇ sᴜʙsᴄʀɪᴘᴛɪᴏɴ sᴇᴛᴛɪɴɢs:**</blockquote>
 **Configured Channels:**
 {channels_display}
 
