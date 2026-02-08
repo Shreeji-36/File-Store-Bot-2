@@ -45,7 +45,7 @@ async def send_text(client, message):
                     await client.mongodb.del_user(chat_id)
                     deleted += 1
                 except Exception as e:
-                    print(f"Failed to send message to {chat_id}: {e}")
+                    print(f"ғᴀɪʟᴇᴅ ᴛᴏ sᴇɴᴅ ᴍᴇssᴀɢᴇ ᴛᴏ {chat_id}: {e}")
                     unsuccessful += 1
                     pass
                 total += 1
@@ -80,7 +80,7 @@ async def pin_bdcst_text(client, message):
             deleted = 0
             unsuccessful = 0
 
-            pls_wait = await message.reply("<blockquote><i>Broadcasting Message.. This will Take Some Time</i></blockquote>")
+            pls_wait = await message.reply("<blockquote><i>Bʀᴏᴀᴅᴄᴀsᴛɪɴɢ ᴍᴇssᴀɢᴇ... Tʜɪs ᴡɪʟʟ ᴛᴀᴋᴇ sᴏᴍᴇ ᴛɪᴍᴇ</i></blockquote>")
 
             for chat_id in query:
                 try:
