@@ -13,7 +13,7 @@ SHORT_API = ""
 SHORT_TUT = "https://t.me/How_to_Download_7x/26"
 
 # Bot Configuration
-SESSION = "yato"
+SESSION = "𝗖𝗵𝗿𝗼𝗹𝗹𝗼"
 TOKEN = "8578998808:AAHzol7mfZuHHNMT0g3Hv6u9SjiQXwxifJY"
 API_ID = ""
 API_HASH = ""
