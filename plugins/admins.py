@@ -10,7 +10,7 @@ import shutil
 async def admins(client, query):
     if not (query.from_user.id==client.owner):
         return await query.answer('This can only be used by owner.')
-    msg = f"""<blockquote>**Admin Settings:**</blockquote>
+    msg = f"""<blockquote>**Aᴅᴍɪɴ Sᴇᴛᴛɪɴɢs:**</blockquote>
 **Admin User IDs:** {", ".join(f"`{a}`" for a in client.admins)}
 
 __Use the appropriate button below to add or remove an admin based on your needs!__
