@@ -16,11 +16,11 @@ SHORT_TUT = "https://t.me/How_to_Download_7x/26"
 SESSION = "𝗖𝗵𝗿𝗼𝗹𝗹𝗼"
 TOKEN = "8578998808:AAHzol7mfZuHHNMT0g3Hv6u9SjiQXwxifJY"
 API_ID = "38528447"
-API_HASH = ""
-WORKERS = 5
+API_HASH = "a0b76b9ff89c3f30adbb2696438c6581"
+WORKERS = 1
 
 DB_URI = "mongodb"
-DB_NAME = "yato"
+DB_NAME = "𝗖𝗵𝗿𝗼𝗹𝗹𝗼"
 
 FSUBS = [[-1003016571084, True, 10]] # Force Subscription Channels [channel_id, request_enabled, timer_in_minutes]
 # Database Channel (Primary)
