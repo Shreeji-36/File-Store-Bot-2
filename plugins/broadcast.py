@@ -10,7 +10,7 @@ async def user_count(client, message):
     if not message.from_user.id in client.admins:
         return await client.send_message(message.from_user.id, client.reply_text)
     total_users = await client.mongodb.full_userbase()
-    await message.reply(f"**{len(total_users)} Users are using this bot currently!**")
+    await message.reply(f"**{len(total_users)} ᴜsᴇʀs ᴀʀᴇ ᴜsɪɴɢ ᴛʜɪs ʙᴏᴛ ᴄᴜʀʀᴇɴᴛʟʏ !**")
 
 #===============================================================#
 
