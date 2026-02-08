@@ -1,4 +1,4 @@
-#(©)Codeflix Bots (ProYato)
+#(©)Codeflix Bots (Anime Galaxy)
 
 from aiohttp import web
 from .route import routes
