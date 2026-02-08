@@ -470,18 +470,26 @@ class MongoDB:
             return None
 
     async def sync_channel_members(self, channel_id: int, current_members: list):
-        """Synchronize database with actual channel members"""
-        try:
-            # Get stored users for this channel
-            stored_users = await self.get_channel_users(channel_id)
+    """Synchronize database with actual channel members"""
+    try:
+        # Get stored users for this channel
+        stored_users = await self.get_channel_users(channel_id)
 
-            # Find users to add (in channel but not in database)
-            users_to_add = set(current_members) - set(stored_users)
+        # Find users to add (in channel but not in database)
+        users_to_add = set(current_members) - set(stored_users)
 
-            # Find users to remove (in database but not in channel)
-            users_to_remove = set(stored_users) - set(current_members)
+        # Find users to remove (in database but not in channel)
+        users_to_remove = set(stored_users) - set(current_members)
 
-            # Add new users
-            for user_id in users_to_add:
-                await self.add_channel_user(channel_id, user_id)
-                await self.update_fsub_status(user_id, channel_id, "joined")
+        # Add new users
+        for user_id in users_to_add:
+            await self.add_channel_user(channel_id, user_id)
+            await self.update_fsub_status(user_id, channel_id, "joined")
+
+        # Remove users who left
+        for user_id in users_to_remove:
+            await self.remove_channel_user(channel_id, user_id)
+            await self.update_fsub_status(user_id, channel_id, "left")
+
+    except Exception as e:
+        print(f"Error syncing channel {channel_id} members:", e)
