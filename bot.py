@@ -208,7 +208,7 @@ def main():
     ).run()
 
 
-If __name__ == "__main__"
+If __name__ == "__main__":
     main()
 #async def web_app():
  ##  await app.setup()
