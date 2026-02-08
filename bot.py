@@ -153,7 +153,7 @@ class Bot(Client):
             self.LOGGER(__name__, self.name).warning(f"Make Sure bot is Admin in DB Channel, and Double check the database channel Value, Current Value {self.db}")
             self.LOGGER(__name__, self.name).info("\nBot Stopped. Join https://t.me/AnimeChatGroup36 for support")
             sys.exit()
-        self.LOGGER(__name__, self.name).info("Bot Started!!")
+        self.LOGGER(__name__, self.name).info("Bᴏᴛ Sᴛᴀʀᴛᴇᴅ !!")
 
         # Send restart msge to owner
         try:
@@ -166,7 +166,7 @@ class Bot(Client):
         self.username = usr_bot_me.username
     async def stop(self, *args):
         await super().stop()
-        self.LOGGER(__name__, self.name).info("Bot stopped.")
+        self.LOGGER(__name__, self.name).info("Bᴏᴛ Sᴛᴏᴘᴘᴇᴅ.")
 
 
 async def web_app():
