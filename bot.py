@@ -9,9 +9,25 @@ import sys
 from datetime import datetime
 from config import LOGGER, PORT, OWNER_ID, SHORT_URL, SHORT_API, SHORT_TUT
 from helper import MongoDB
+from threading import Thread
+
+from flask import Flask
 
 version = "v1.0.0"
+# ---------- FLASK ----------
+app = Flask(__name__)
 
+@app.route("/")
+def home():
+    return "Bot is running!", 200
+
+
+def run_flask():
+    app.run(
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 10000)),
+        debug=False
+    )
 
 class Bot(Client):
     def __init__(self, session, workers, db, fsub, token, admins, messages, auto_del, db_uri, db_name, api_id, api_hash, protect, disable_btn):
@@ -168,10 +184,18 @@ class Bot(Client):
         await super().stop()
         self.LOGGER(__name__, self.name).info("Bᴏᴛ Sᴛᴏᴘᴘᴇᴅ.")
 
+# ---------- MAIN RUNNER ----------
+def main():
+    # Start Flask for Render
+    Thread(target=run_flask, daemon=True).start()
 
-async def web_app():
-    app = web.AppRunner(await web_server())
-    await app.setup()
-    bind_address = "0.0.0.0"
-    await web.TCPSite(app, bind_address, PORT).start()
+    # Start Telegram bot
+    Bot().run()
+
+if __name__ == "__main__":
+    main()
+#async def web_app():
+ ##  await app.setup()
+   # bind_address = "0.0.0.0"
+    #await web.TCPSite(app, bind_address, PORT).start()
               
