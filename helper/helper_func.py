@@ -418,7 +418,7 @@ def convert_time(duration_seconds: int) -> str:
 #.........Auto Delete Functions.......#
 #===============================================================#
 
-DEL_MSG = """<b>This File is deleting automatically in <a href="https://t.me/{username}">{time}</a>.. Forward in your Saved Messages..!</b>"""
+DEL_MSG = """<b>Tʜɪs ғɪʟᴇ ɪs ᴅᴇʟᴇᴛɪɴɢ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴜᴇ ᴛᴏ ᴄᴏᴘʏʀɪɢʜᴛ ᴡɪᴛʜɪɴ <a href="https://t.me/{username}">{time}</a>.. Fᴏʀᴡᴀʀᴅ ɪɴ ʏᴏᴜʀ sᴀᴠᴇᴅ ᴍᴇssᴀɢᴇs..!</b>"""
 
 #Function for provide auto delete notification message
 async def auto_del_notification(bot_username, msg, delay_time, transfer): 
