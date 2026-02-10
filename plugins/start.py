@@ -258,7 +258,7 @@ async def start_command(client: Client, message: Message):
             buttons.insert(0, [InlineKeyboardButton("⛩️ ꜱᴇᴛᴛɪɴɢꜱ ⛩️", callback_data="settings")])
 
         photo = client.messages.get("START_PHOTO", "https://i.ibb.co/MxF18fHF/x.jpg")
-        start_caption = client.messages.get("START", "<b>◈ Hᴇʏ  {update.effective_user.mention_html()} ×</b>\n"
+        start_caption = client.messages.get("START", "<b>◈ Hᴇʏ {mention} ×</b>\n"
 "<blockquote expandable><b>➤ ɪ ᴀᴍ ᴘʟᴇᴀsᴇᴅ ᴛᴏ ɪɴғᴏʀᴍ ʏᴏᴜ ᴛʜᴀᴛ ɪ ᴄᴀɴ ᴘʀᴏᴠɪᴅᴇ ʏᴏᴜ ᴡɪᴛʜ ᴀɴɪᴍᴇ ғɪʟᴇs ғʀᴏᴍ ʏᴏᴜʀ ғᴀᴠᴏʀɪᴛᴇ sᴇʀɪᴇs.\n"
 "➖➖➖➖➖➖➖➖➖\n"
 "➤ ʏᴏᴜ ᴡɪʟʟ ʜᴀᴠᴇ ᴛʜᴇ ᴏᴘᴛɪᴏɴ ᴛᴏ sᴇʟᴇᴄᴛ ᴛʜᴇ ғᴏʀᴍᴀᴛ ᴏғ ʏᴏᴜʀ ᴄʜᴏɪᴄᴇ, ᴡʜᴇᴛʜᴇʀ ɪᴛ ʙᴇ 480ᴘ, 720ᴘ, 1080ᴘ, ᴏʀ ᴀɴʏ ᴏᴛʜᴇʀ ᴘʀᴇғᴇʀᴇɴᴄᴇ ʏᴏᴜ ᴍᴀʏ ʜᴀᴠᴇ.\n"
