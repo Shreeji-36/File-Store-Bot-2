@@ -8,7 +8,9 @@ async def texts(client, query):
 **Start Message:**
 <pre>{client.messages.get('START', 'Empty')}</pre>
 **Force Sub Message:**
-<pre>{client.messages.get('FSUB', 'Empty')}</pre>
+<pre>{client.messages.get('FSUB', "<b>◈ Hᴇʏ  {update.effective_user.mention_html()} ×</b>\n"
+"<blockquote expandable><b>›› Yᴏᴜ ʜᴀᴠᴇɴ'ᴛ ᴊᴏɪɴᴇᴅ ᴏᴜʀ ᴄʜᴀɴɴᴇʟs ʏᴇᴛ. Pʟᴇᴀsᴇ ᴊᴏɪɴ ᴛʜᴇ ᴄʜᴀɴɴᴇʟs ᴘʀᴏᴠɪᴅᴇᴅ ʙᴇʟᴏᴡ, ᴛʜᴇɴ ᴛʀʏ ᴀɢᴀɪɴ.. !</b></blockquote>\n\n"
+"<b>››❗Fᴀᴄɪɴɢ ᴘʀᴏʙʟᴇᴍs, ᴄᴏɴᴛᴀᴄᴛ ʜᴇʀᴇ : <a href='https://t.me/Prince_Vegeta_36'>𝗖𝗵𝗿𝗼𝗹𝗹𝗼</b></a>")}</pre>
 **About Message:**
 <pre>{client.messages.get('ABOUT', 'Empty')}</pre>
 **Reply Message:**
