@@ -420,7 +420,11 @@ def convert_time(duration_seconds: int) -> str:
 #.........Auto Delete Functions.......#
 #===============================================================#
 
-DEL_MSG = """<b>Tʜɪs ғɪʟᴇ ɪs ᴅᴇʟᴇᴛɪɴɢ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴜᴇ ᴛᴏ ᴄᴏᴘʏʀɪɢʜᴛ ᴡɪᴛʜɪɴ <a href="https://t.me/{username}">{time}</a>.. Fᴏʀᴡᴀʀᴅ ɪɴ ʏᴏᴜʀ sᴀᴠᴇᴅ ᴍᴇssᴀɢᴇs..!</b>"""
+DEL_MSG = """<blockquote><b>◈ Dᴜᴇ ᴛᴏ Cᴏᴘʏʀɪɢʜᴛ ɪssᴜᴇs....</b><blockquote>\n"
+
+"<blockquote><b>›› Yᴏᴜʀ ғɪʟᴇs ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ᴡɪᴛʜɪɴ <a href="https://t.me/{username}">{time}</a>.. Sᴏ ᴘʟᴇᴀsᴇ ғᴏʀᴡᴀʀᴅ ᴛʜᴇᴍ ᴛᴏ ᴀɴʏ ᴏᴛʜᴇʀ ᴘʟᴀᴄᴇ ғᴏʀ ғᴜᴛᴜʀᴇ ᴀᴠᴀɪʟᴀʙɪʟɪᴛʏ. </b><blockquote>\n"
+
+"<blockquote><b>≡ ɴᴏᴛᴇ : ᴜsᴇ ᴠʟᴄ ᴘʟᴀʏᴇʀ ᴏʀ ᴍx ᴘʟᴀʏᴇʀ ᴛᴏ ᴡᴀᴛᴄʜ ᴛʜᴇ ᴇᴘɪsᴏᴅᴇs ᴡɪᴛʜ ɢᴏᴏᴅ ᴇxᴘᴇʀɪᴇɴᴄᴇ !</b><blockquote>"""
 
 #Function for provide auto delete notification message
 async def auto_del_notification(bot_username, msg, delay_time, transfer): 
