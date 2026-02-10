@@ -15,9 +15,9 @@ async def texts(client, query):
 <b>‣ ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : </b>
 <a href='https://t.me/Prince_Vegeta_36'>𝗖𝗵𝗿𝗼𝗹𝗹𝗼</a>')}</pre>
 **Force Sub Message:**
-<pre>{client.messages.get('FSUB', '"<b>◈ Hᴇʏ  {update.effective_user.mention_html()} ×</b>\n
+<pre>{client.messages.get('FSUB', '"<b>◈ Hᴇʏ  {update.effective_user.mention_html()} ×</b>\n"
  <blockquote expandable><b>›› Yᴏᴜ ʜᴀᴠᴇɴ'ᴛ ᴊᴏɪɴᴇᴅ ᴏᴜʀ ᴄʜᴀɴɴᴇʟs ʏᴇᴛ. Pʟᴇᴀsᴇ ᴊᴏɪɴ ᴛʜᴇ ᴄʜᴀɴɴᴇʟs ᴘʀᴏᴠɪᴅᴇᴅ ʙᴇʟᴏᴡ, ᴛʜᴇɴ ᴛʀʏ ᴀɢᴀɪɴ.. !</b></blockquote>\n\n
- <b>››❗Fᴀᴄɪɴɢ ᴘʀᴏʙʟᴇᴍs, ᴄᴏɴᴛᴀᴄᴛ ʜᴇʀᴇ : @Prince_Vegeta_36</b>"')}</pre>
+ <b>››❗Fᴀᴄɪɴɢ ᴘʀᴏʙʟᴇᴍs, ᴄᴏɴᴛᴀᴄᴛ ʜᴇʀᴇ : @Prince_Vegeta_36</b>')}</pre>
 **About Message:**
 <pre>{client.messages.get('ABOUT', 'Empty')}</pre>
 **Reply Message:**
