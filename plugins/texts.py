@@ -6,14 +6,14 @@ from pyrogram.types import CallbackQuery, Message, InlineKeyboardButton, InlineK
 async def texts(client, query):
     msg = f"""<blockquote>**Tᴇxᴛ Cᴏɴғɪɢᴜʀᴀᴛɪᴏɴ:**</blockquote>
 **Start Message:**
-<pre>{client.messages.get('START', '"<b>◈ Hᴇʏ  {update.effective_user.mention_html()} ×</b>\n
+<pre>{client.messages.get('START', '<b>◈ Hᴇʏ  {update.effective_user.mention_html()} ×</b>\n
 <blockquote expandable><b>➤ ɪ ᴀᴍ ᴘʟᴇᴀsᴇᴅ ᴛᴏ ɪɴғᴏʀᴍ ʏᴏᴜ ᴛʜᴀᴛ ɪ ᴄᴀɴ ᴘʀᴏᴠɪᴅᴇ ʏᴏᴜ ᴡɪᴛʜ ᴀɴɪᴍᴇ ғɪʟᴇs ғʀᴏᴍ ʏᴏᴜʀ ғᴀᴠᴏʀɪᴛᴇ sᴇʀɪᴇs.\n
 ➖➖➖➖➖➖➖➖➖\n
 ➤ ʏᴏᴜ ᴡɪʟʟ ʜᴀᴠᴇ ᴛʜᴇ ᴏᴘᴛɪᴏɴ ᴛᴏ sᴇʟᴇᴄᴛ ᴛʜᴇ ғᴏʀᴍᴀᴛ ᴏғ ʏᴏᴜʀ ᴄʜᴏɪᴄᴇ, ᴡʜᴇᴛʜᴇʀ ɪᴛ ʙᴇ 480ᴘ, 720ᴘ, 1080ᴘ, ᴏʀ ᴀɴʏ ᴏᴛʜᴇʀ ᴘʀᴇғᴇʀᴇɴᴄᴇ ʏᴏᴜ ᴍᴀʏ ʜᴀᴠᴇ.\n
 ➖➖➖➖➖➖➖➖➖\n
 ➤ ᴡᴇ ᴀʀᴇ ʜᴇʀᴇ ᴛᴏ ᴄᴀᴛᴇʀ ᴛᴏ ʏᴏᴜʀ ᴀɴɪᴍᴇ ɴᴇᴇᴅs ᴡɪᴛʜ ᴛʜᴇ ᴜᴛᴍᴏsᴛ ᴘʀᴏғᴇssɪᴏɴᴀʟɪsᴍ ᴀɴᴅ ǫᴜᴀʟɪᴛʏ.</b></blockquote>\n\n
 <b>‣ ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : </b>
-<a href='https://t.me/Prince_Vegeta_36'>𝗖𝗵𝗿𝗼𝗹𝗹𝗼</a>"')}</pre>
+<a href='https://t.me/Prince_Vegeta_36'>𝗖𝗵𝗿𝗼𝗹𝗹𝗼</a>')}</pre>
 **Force Sub Message:**
 <pre>{client.messages.get('FSUB', 'Empty')}</pre>
 **About Message:**
