@@ -304,7 +304,7 @@ def force_sub(func):
     async def wrapper(client: Client, message: Message):
         if not client.fsub_dict:
             return await func(client, message)
-        photo = client.messages.get('FSUB_PHOTO', '')
+        photo = client.messages.get('FSUB_PHOTO', 'https://i.ibb.co/qL4qXCB3/x.jpg')
         if photo:
             msg = await message.reply_photo(
                 caption="<b>ᴡᴀɪᴛ ᴀ sᴇᴄᴏɴᴅ.....</b>", 
@@ -323,9 +323,9 @@ def force_sub(func):
 
         # User is not subscribed to all channels
         buttons = []
-        channels_message = f"{client.messages.get("FSUB", "<b>◈ Hᴇʏ  Cᴜᴛɪᴇ  × </b>
-<b><blockquote expandable>›› Yᴏᴜ ʜᴀᴠᴇɴ'ᴛ ᴊᴏɪɴᴇᴅ ᴏᴜʀ ᴄʜᴀɴɴᴇʟs ʏᴇᴛ. Pʟᴇᴀsᴇ ᴊᴏɪɴ ᴛʜᴇ ᴄʜᴀɴɴᴇʟs ᴘʀᴏᴠɪᴅᴇᴅ ʙᴇʟᴏᴡ, ᴛʜᴇɴ ᴛʀʏ ᴀɢᴀɪɴ.. !</b><blockquote>
-<b>››❗Fᴀᴄɪɴɢ ᴘʀᴏʙʟᴇᴍs, ᴄᴏɴᴛᴀᴄᴛ ʜᴇʀᴇ: @Prince_Vegeta_36</b>")}\n\n"
+        channels_message = f"{client.messages.get("FSUB", "<b>◈ Hᴇʏ  Cᴜᴛɪᴇ  × </b>"
+"<b><blockquote expandable>›› Yᴏᴜ ʜᴀᴠᴇɴ'ᴛ ᴊᴏɪɴᴇᴅ ᴏᴜʀ ᴄʜᴀɴɴᴇʟs ʏᴇᴛ. Pʟᴇᴀsᴇ ᴊᴏɪɴ ᴛʜᴇ ᴄʜᴀɴɴᴇʟs ᴘʀᴏᴠɪᴅᴇᴅ ʙᴇʟᴏᴡ, ᴛʜᴇɴ ᴛʀʏ ᴀɢᴀɪɴ.. !</b><blockquote>"
+"<b>››❗Fᴀᴄɪɴɢ ᴘʀᴏʙʟᴇᴍs, ᴄᴏɴᴛᴀᴄᴛ ʜᴇʀᴇ: @Prince_Vegeta_36</b>")}\n\n"
 
         for channel_id, (channel_name, channel_link, request, timer) in client.fsub_dict.items():
             status = statuses.get(channel_id, None)
