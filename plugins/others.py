@@ -295,7 +295,7 @@ async def home(client: Client, query: CallbackQuery):
 "➤ ʏᴏᴜ ᴡɪʟʟ ʜᴀᴠᴇ ᴛʜᴇ ᴏᴘᴛɪᴏɴ ᴛᴏ sᴇʟᴇᴄᴛ ᴛʜᴇ ғᴏʀᴍᴀᴛ ᴏғ ʏᴏᴜʀ ᴄʜᴏɪᴄᴇ, ᴡʜᴇᴛʜᴇʀ ɪᴛ ʙᴇ 480ᴘ, 720ᴘ, 1080ᴘ, ᴏʀ ᴀɴʏ ᴏᴛʜᴇʀ ᴘʀᴇғᴇʀᴇɴᴄᴇ ʏᴏᴜ ᴍᴀʏ ʜᴀᴠᴇ.\n"
 "➖➖➖➖➖➖➖➖➖\n"
 "➤ ᴡᴇ ᴀʀᴇ ʜᴇʀᴇ ᴛᴏ ᴄᴀᴛᴇʀ ᴛᴏ ʏᴏᴜʀ ᴀɴɪᴍᴇ ɴᴇᴇᴅs ᴡɪᴛʜ ᴛʜᴇ ᴜᴛᴍᴏsᴛ ᴘʀᴏғᴇssɪᴏɴᴀʟɪsᴍ ᴀɴᴅ ǫᴜᴀʟɪᴛʏ.</b></blockquote>\n\n"
-"<b>‣ ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : 𝗖𝗵𝗿𝗼𝗹𝗹𝗼</b>").format(
+"<b>‣ ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : @Prince_Vegeta_36</b>").format(
             first=query.from_user.first_name,
             last=query.from_user.last_name,
             username=None if not query.from_user.username else '@' + query.from_user.username,
