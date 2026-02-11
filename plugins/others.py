@@ -313,7 +313,7 @@ async def home(client: Client, query: CallbackQuery):
 async def about(client: Client, query: CallbackQuery):
     buttons = [[InlineKeyboardButton("Back", callback_data = "home"), InlineKeyboardButton("Close", callback_data = "close")]]
     await query.message.edit_text(
-        text=client.messages.get('ABOUT', 'No Start Message').format(
+        text=client.messages.get('ABOUT', "<blockquote expandable><b>›› ᴍʏ ɴᴀᴍᴇ: <a href='https://t.me/AG_Unohana_bot'>sᴏɪғᴏɴ</a> \n›› ᴏᴡɴᴇʀ: <a href='https://t.me/Prince_Vegeta_36'>𝗖𝗵𝗿𝗼𝗹𝗹𝗼</a>\n›› ʟᴀɴɢᴜᴀɢᴇ: <a href='https://docs.python.org/3/'>Pʏᴛʜᴏɴ 3</a> \n›› ʟɪʙʀᴀʀʏ: <a href='https://docs.pyrogram.org/'>Pʏʀᴏɢʀᴀᴍ ᴠ2</a> \n›› ᴅᴀᴛᴀʙᴀsᴇ: <a href='https://www.mongodb.com/docs/'>Mᴏɴɢᴏ ᴅʙ</a> \n›› ᴅᴇᴠᴇʟᴏᴘᴇʀ: <a href='https://t.me/Prince_Vegeta_36'>𝗖𝗵𝗿𝗼𝗹𝗹𝗼</a></b></blockquote>").format(
             owner_id=client.owner,
             bot_username=client.username,
             first=query.from_user.first_name,
