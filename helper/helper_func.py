@@ -307,12 +307,12 @@ def force_sub(func):
         photo = client.messages.get('FSUB_PHOTO', 'https://i.ibb.co/qL4qXCB3/x.jpg')
         if photo:
             msg = await message.reply_photo(
-                caption="<b>ᴡᴀɪᴛ ᴀ sᴇᴄᴏɴᴅ.....</b>", 
+                caption="<b>Cʜᴇᴄᴋɪɴɢ Sᴜʙsᴄʀɪᴘᴛɪᴏɴ...</b>", 
                 photo=photo
             )
         else:
             msg = await message.reply(
-                "<code><b>ᴡᴀɪᴛ ᴀ sᴇᴄᴏɴᴅ.....</b></code>"
+                "<code><b>Cʜᴇᴄᴋɪɴɢ Sᴜʙsᴄʀɪᴘᴛɪᴏɴ...</b></code>"
             )
         user_id = message.from_user.id
         statuses = await check_subscription(client, user_id)
