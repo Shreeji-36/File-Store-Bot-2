@@ -323,9 +323,8 @@ def force_sub(func):
 
         # User is not subscribed to all channels
         buttons = []
-        channels_message = f"{client.messages.get('FSUB','<b>◈ Hᴇʏ  Cᴜᴛɪᴇ ×</b>\n
-<b>›› <b>◈ Hᴇʏ  Cᴜᴛɪᴇ ×</b>
-<b>›› Pʟᴇᴀsᴇ ᴊᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟs ᴘʀᴏᴠɪᴅᴇᴅ ʙᴇʟᴏᴡ ғɪʀsᴛ, ᴛʜᴇɴ ᴄʟɪᴄᴋ ᴏɴ ᴛʀʏ ᴀɢᴀɪɴ...!</b>\n\n
+        channels_message = f"{client.messages.get('FSUB','<b>◈ Hᴇʏ  Cᴜᴛɪᴇ ×</b>
+<b>›› Pʟᴇᴀsᴇ ᴊᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟs ᴘʀᴏᴠɪᴅᴇᴅ ʙᴇʟᴏᴡ ғɪʀsᴛ, ᴛʜᴇɴ ᴄʟɪᴄᴋ ᴏɴ ᴛʀʏ ᴀɢᴀɪɴ...!</b>
 
 <b>››❗Fᴀᴄɪɴɢ ᴘʀᴏʙʟᴇᴍs, ᴄᴏɴᴛᴀᴄᴛ ʜᴇʀᴇ: @Prince_Vegeta_36</b>')}\n\n"
 
