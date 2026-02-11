@@ -325,7 +325,6 @@ def force_sub(func):
         buttons = []
         channels_message = f"{client.messages.get("FSUB","<b>◈ Hᴇʏ  Cᴜᴛɪᴇ ×</b>\n
 <b>›› Pʟᴇᴀsᴇ ᴊᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟs ᴘʀᴏᴠɪᴅᴇᴅ ʙᴇʟᴏᴡ ғɪʀsᴛ, ᴛʜᴇɴ ᴄʟɪᴄᴋ ᴏɴ ᴛʀʏ ᴀɢᴀɪɴ...!</b>\n\n
-
 <b>››❗Fᴀᴄɪɴɢ ᴘʀᴏʙʟᴇᴍs, ᴄᴏɴᴛᴀᴄᴛ ʜᴇʀᴇ: @Prince_Vegeta_36</b>")}\n\n"
 
         for channel_id, (channel_name, channel_link, request, timer) in client.fsub_dict.items():
